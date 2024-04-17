@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>Restaurant App</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+	<header>
+      <h1>littlefoot farm</h1>
+      <h2>Community <br />Dinner</h2>
+	</header>
+       	<section class="content-container">
+            <div id="menu-container">
+                <div id="menu-items" class="menu-items"></div>
+            </div>
+        </div>
+            <div id="cart-container" class="cart-container hidden"> 
+                <h2 class="cart-title">Your Order</h2>
+                    <div id="cart-items"></div>
+                <div class="total-container">
+                    <div>Total price:</div>
+                    <div id="total"></div>
+                </div>
+                <button type="submit" data-submit-btn="submit-btn" class="btn">Complete order</button>
+            </div>     
+            <div id ="thank-you-msg" class="thank-you-msg"></div>   
+       	</section>
+        <section class="modal-container">
+            <div class="modal" id="modal">
+                <div class="close-modal-btn-container">
+                    <button class="modal-close-btn" data-close-btn="modal-close-btn" aria-label="close payment window">
+                        &times;
+                    </button>
+                </div>
+                
+				<form id="payment-form">
+                    <h3>Enter Card Details</h3>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                        >
+                    <input 
+                        type="number" 
+                        id="cardNumber" 
+                        name="cardNumber"
+                        placeholder="Enter your card number"
+                        required
+                        >
+                    <input 
+                        type="number" 
+                        id="cvv" 
+                        name="cvv"
+                        placeholder="Enter your cvv"
+                        required
+                        >
+                    <button type="submit" class="btn">Pay</button>
+				</form>			
+		</div>
+        </section>
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
