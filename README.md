@@ -36,11 +36,11 @@ The initial version of this project was created as part of a <a href="https://sc
 
 Requirements:
 
-* Clicking the button makes a GET request from The Color API to get color scheme
-* Use fetch ()
-* Choose "seed color" with an input type="color"
-* Choose color scheme mode in a select box
-* Display the hex values and colors in the page
+* Render the menu options using Javascript
+* Use reduce(), destructuring, for loops 
+* Be able to add/remove items
+* Have a payment modal with compulsory form inputs
+  
 
 <br>
 Inspired by a Canva template, adapted and styled by me. Coded using Visual Studio Code.<br><br>
