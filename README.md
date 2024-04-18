@@ -32,7 +32,7 @@
 ## About The Project
 ![a home journal screenshot](/foodappscreenshot.png)
 
-The initial version of this project was created as part of a <a href="https://scrimba.com/" target="_blank" rel="noopener noreferrer"> Scrimba</a> tutorial. This template could be adapted to use for any eCommerce UI
+The initial version of this project was created as part of a <a href="https://scrimba.com/" target="_blank" rel="noopener noreferrer"> Scrimba</a> tutorial. This is an eCommerce template that can be adpated. 
 
 Requirements:
 
@@ -43,6 +43,7 @@ Requirements:
 * Display the hex values and colors in the page
 
 <br>
+Inspired by a Canva template, adapted and styled by me. Coded using Visual Studio Code.<br><br>
 <a target="_blank" href="https://icons8.com/icon/80890/dining-room" rel="noopener noreferrer">Eat</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
