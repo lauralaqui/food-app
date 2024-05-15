@@ -34,8 +34,6 @@
 
 This is an eCommerce template that can be adpated for almost any product or service. 
 
-Inspired by a Canva template, adapted and styled by me. Coded using Visual Studio Code.
-
 The initial version of this project was created as part of a <a href="https://scrimba.com/" target="_blank" rel="noopener noreferrer"> Scrimba</a> tutorial. 
 
 Requirements:
@@ -45,6 +43,12 @@ Requirements:
 * Ability to add/remove items
 * HTML form
 * Payment modal with compulsory form inputs
+
+Extended version:
+
+* Added a more sophisticated increment and decrement counter for cart items 
+* Inspired by a Canva template, adapted and styled by me with food illustrations by <a target="_blank" href="https://www.vecteezy.com/free-vector/hand-drawn-food-icons" rel="noopener no referrer">Vecteezy</a>
+
   
 
 <br>
