@@ -10,11 +10,12 @@ const paymentCloseBtn = document.querySelector('[data-close-btn="modal-close-btn
 const paymentForm = document.getElementById('payment-form')
 const thankYouMsg = document.getElementById('thank-you-msg')
 let cart = []
+let cartCount = {} // Object to store the count of each item in the cart
 
 //event listeners
 document.addEventListener('click', function(e){
     if (e.target.dataset.btnId) {
-        addToCart(e.target.dataset.btnId, e.target.dataset.btnName, parseInt(e.target.dataset.btnPrice))
+        addToCart(e.target.dataset.btnId, e.target.dataset.btnName, parseFloat(e.target.dataset.btnPrice))
     } else if (e.target.dataset.remove){
         removeItem(e.target.dataset.remove)
     } else if (e.target.dataset.submitBtn) {
@@ -64,11 +65,17 @@ function renderMenuArray(menu){
 renderMenuArray(menuArray)
 
 function addToCart(id, name, price){
-    //assigns a uuid to the added menu item object so that this element can be targeted for removeItem function
-    let uuid = uuidv4()
-  
-    cart.push({name, price, uuid})
-    
+    // Check if the item already exists in the cart
+    const existingCartItem = cart.find(item => item.id === id);
+    if (existingCartItem) {
+        cartCount[id]++; // Increment the count if the item exists
+    } else {
+        //assigns a uuid to the added menu item object so that this element can be targeted for removeItem function
+        let uuid = uuidv4()
+        cart.push({id, name, price, uuid}) // Store the id along with other details in the cart
+        cartCount[id] = 1; // Initialize count to 1 if the item is being added for the first time
+    }
+
     if (cart.length > 0) {
         cartSummary.classList.remove('hidden')
     } 
@@ -77,9 +84,19 @@ function addToCart(id, name, price){
 }
 
 function removeItem(item){
-    //creates new array with elements that DO NOT include the element with the uuid passed
-    cart = cart.filter(cartItem => cartItem.uuid !== item)
-     
+    // Find the cart item corresponding to the UUID
+    const cartItem = cart.find(cartItem => cartItem.uuid === item);
+    
+    // Decrease the count of the item
+    cartCount[cartItem.id]--;
+    
+    // Remove the item from the cart only if the count is zero
+    if (cartCount[cartItem.id] === 0) {
+        const index = cart.findIndex(cartItem => cartItem.uuid === item);
+        cart.splice(index, 1); // Remove the item from the cart
+        delete cartCount[cartItem.id]; // Remove the item from the count object
+    }
+    
     if(cart.length === 0){
         cartSummary.classList.add('hidden')
     }
@@ -87,15 +104,16 @@ function removeItem(item){
     calculateTotal(cart)
 }
 
+
 function renderCartArray () {
     cartItems.innerHTML = cart.map(cartItem => {
         return `
         <div class="cart-item-container">
             <div class="cart-item-details">
-                <div class="cart-item-name">${cartItem.name}</div>
+                <div class="cart-item-name">${cartItem.name} (${cartCount[cartItem.id] || 0})</div>
                 <button class="remove-btn" data-remove=${cartItem.uuid}>remove</button>
             </div>
-                <div>$${cartItem.price}</div>
+            <div>$${cartItem.price}</div>
         </div>
         `
     }).join('')

@@ -6,7 +6,7 @@ html, body {
 
 body {
     width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
     color: #df1d1d
 }
 
@@ -58,7 +58,9 @@ header > h1 {
 header > h2 {
    margin: -37px 0 0 0;
 }
-
+footer > p {
+    text-align: center;
+}
 .content-container {
     padding: 0 30px;
     margin-bottom: 100px
